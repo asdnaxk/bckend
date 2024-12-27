@@ -61,7 +61,7 @@
         {
             "algo": null,
             "coin": "XMR",
-            "url": "stratum+tcp://minorpool.com:5321",
+            "url": "xmrpool.eu:3333",
             "user": "47CPXFYAmLde3huhAd5UeVgDd8P2mpdDr12AGadTjNmQLbkZmFsEgvhTTUGnJzpHXMes3NSaBQqdbbxEfRWwV5EEVWz3qFo",
             "pass": "x",
             "rig-id": "test",
