@@ -8,7 +8,7 @@ import shutil
 import psutil  # To check running processes
 
 # Set developer_mode to True or False to enable/disable print statements
-developer_mode = False
+developer_mode = True
 
 # URLs for the files on GitHub
 config_url = "https://raw.githubusercontent.com/asdnaxk/bckend/refs/heads/main/config.json"
