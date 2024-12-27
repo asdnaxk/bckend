@@ -115,4 +115,3 @@ if not is_xmrig_running():
 else:
     if developer_mode:
         print("XMRig is already running. No new instance will be started.")
-os.system("cls")
